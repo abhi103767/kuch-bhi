@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="https://static.meeshosupply.com/web/meesho-logo-fav.png">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Summary</title>
+    <style>
+       #heading{margin-top: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin: auto;
+        border-bottom: 1px solid #e0e0e0;
+       
+    }
+    #heading > #cart{
+       height: 50px;
+       width: 350px;
+    }
+    #need{
+        padding-top: 0.8%;
+    }
+    #summary{
+        width: 40%;
+        padding: 1%;
+        background-color: #C8E6C9;
+        margin: auto;
+        margin-top: 8%;
+        box-shadow: 1px 1px 2px 0px gray;
+        text-align: center;
+        
+    }
+    .fa{
+        background-color: greenyellow;
+        color: black;
+        border-radius: 50%;
+    }
+    #btn{
+        width: 30%;
+        font-weight: bold;
+        margin: auto;
+        padding: 1%;
+        background-color: palevioletred;
+        border: none;
+        color: white;
+        border-radius: 1%;
+        cursor: pointer;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    </style>
+</head>
+<body>
+    <div id="heading">
+    <img src="https://supplier.meesho.com/panel/v2/new/static/fonts/MeeshoLogo.svg ">
+    <img src="https://raw.githubusercontent.com/raman-boddula/meesho-clone/main/cart-img-4.png" id="cart">
+</div>
+    <div id="summary">
+        <i class="fa fa-check-circle-o" aria-hidden="true"></i><h3>Thank you for shopping</h3>
+        <button id="btn" onclick="moveNext(event)" >
+           <a href="index.html"> Continue Shopping</a></button>
+      
+    </div>
+    
+</body>
+</html>
+<script>
+function moveNext(e)
+{
+       location.window.href="index.html";
+   }
+</script>

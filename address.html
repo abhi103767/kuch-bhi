@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://static.meeshosupply.com/web/meesho-logo-fav.png">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Address | Meesho</title>
+    <style>
+          #heading{
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin: auto;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    #heading > #cart{
+       height: 50px;
+       width: 350px;
+    }
+        
+    .navbar{
+       border-bottom: 1px solid #e0e0e0;
+       padding-bottom: 10px;
+        width: 50%;
+        position: fixed;
+        top: 0px;
+        background-color: white;
+        justify-content: center;
+        border: 1px solid red;
+        margin: auto;
+;
+    }
+   .navbar img{
+       width: 15%;
+   }
+    #need{
+        padding-top: 0.8%;
+    }
+    .address{
+        box-sizing: border-box;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 1%;
+        box-shadow: 1px 1px 2px 0px gray;
+        width: 50%;
+        background-color: #FFEBEE;
+    }
+    #logo{
+        font-size: 20px;
+    }
+    #name,#pincode,#city,#state{
+        width: 30%;
+        padding: 1%;
+    }
+    #phone,#house,#road,#nearby{
+        width: 50%;
+        padding: 1%;
+    }
+    #comb{
+        display: flex;
+    }
+    #savebtn{
+       
+     background-color: transparent;
+     width: 50%;
+    border: 1px solid rgb(244 ,51 ,151);
+    color:rgb(244 ,51 ,151) ;
+    font-weight: regular;
+    padding: 10px 30px 10px 30px;
+    line-height: 1.4;
+    font-size: large;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: auto
+    }
+    #savebtn:hover{
+        color: white;
+        background-color: rgb(244 ,51 ,151);
+    }
+    #cart{
+       height: 50px;
+       width: 350px;
+       margin-left: 240px;
+       ;
+    }
+    </style>
+</head>
+<body>
+    
+    <div id="heading">
+        <img src="https://supplier.meesho.com/panel/v2/new/static/fonts/MeeshoLogo.svg ">
+        <img src="https://raw.githubusercontent.com/raman-boddula/meesho-clone/main/cart-2-img.png" id="cart">
+</div>
+
+    <div class="address" >
+        <h5 id="logo"> <i class="fa fa-phone" aria-hidden="true"></i> Contact Details</h5>
+        <input type="text" id="name" placeholder="Name" required /><br>
+        <input type="text" name="" id="phone" placeholder="Phone Number" required /><br>
+        <h4> <i class="fa fa-map-marker" aria-hidden="true"> </i>&nbsp; Address </h4>
+        <input type="text" name="" id="house" placeholder="House No/Building Name" required /><br>
+        <input type="text" id="road" placeholder="Road Name / Area / Colony" required /><br>
+        <input type="text" id="pincode" placeholder="Pincode" required /><br>
+        <div id="comb"><input type="text" name="" id="city" placeholder="City" required>&nbsp; <input type="text" placeholder="State" id="state" required ><br></div>
+        <br>
+        <input type="text" id="nearby" placeholder="Nearby Location (Optional)"/><br>
+        <button onclick="saveAndSubmit(event)" id="savebtn">Save Address & Continue</button>
+    </div>
+    
+</body>
+</html>
+<script>
+    function saveAndSubmit(e){
+        if(document.getElementById("name").value != null ||document.getElementById("phone").value != null ||document.getElementById("house").value != null||document.getElementById("city").value != null)
+        
+        {
+            window.location.href="payment.html";
+        }
+    }
+</script>

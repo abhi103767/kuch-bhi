@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        font-family: roboto , sans-serif;
+        font-size: regular;
+    }
+    #heading{
+        display: flex;
+        justify-content: space-between;
+        width: 97%;
+        margin: auto;
+    }
+    #heading > #cart{
+       height: 50px;
+       width: 350px;
+    }
+    
+    #addedProducts
+    {
+        box-sizing: border-box;
+        width: 60%;
+     
+        display:grid;
+        grid-template-columns: 20% 20% 20% 20%;
+        justify-items: center;
+        grid-gap: 2%;
+        font-size: larger;
+        line-height: 0%;
+
+       
+    }
+    #addedProducts > div{
+        border: 1px solid #e0e0e0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px ;
+    
+    }
+    #container{
+        padding: 20px;
+        display: flex;
+        width: 97%;
+        justify-content: space-between;
+       
+        
+    }
+    #heading > img{
+        width: 150px
+    }
+    #heading > button {
+        background-color: transparent;
+    border: 1px solid rgb(244 ,51 ,151);
+    color:rgb(244 ,51 ,151);
+    font-weight: regular;
+    padding: 10px 30px 10px 30px;
+    line-height: 1.4;
+    font-size: large;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    
+    }
+    #heading > button:hover{
+        background-color: rgb(244 ,51 ,151);
+        color: white;
+    }
+    img
+    {
+        width: 100%;
+    }
+    #detail_product  button
+    {
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        color : black;
+        border: 1px solid black;
+    }
+
+    #detail_product  button:hover {
+        background-color: black;
+        color: white;
+      
+    }
+
+
+    #bill{
+        width: 30%;
+    }
+    h3{ padding-bottom: 15px;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+        margin-bottom: 0;
+    }
+ #detail_product{
+     box-sizing: border-box;
+     padding: 10px;
+     
+ }
+ 
+.delivery{
+    display: flex;
+    padding-right: 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+
+}
+.delivery > h4  {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.delivery >h4:nth-child(2){
+    color: rgb(87, 84, 84);
+}
+#continue{
+    margin-top: 60px;
+    background-color: transparent;
+    width: 100%;
+    border: 1px solid rgb(244 ,51 ,151);
+    color:rgb(244 ,51 ,151);
+    font-weight: regular;
+    padding: 10px 30px 10px 30px;
+    line-height: 1.4;
+    font-size: large;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#continue:hover{
+    background-color: rgb(244 ,51 ,151);
+    color: white;
+}
+#cart{
+
+   width: 800px;
+}
+  
+</style>
+<body>
+    <div id="heading">
+        <img src="https://supplier.meesho.com/panel/v2/new/static/fonts/MeeshoLogo.svg ">
+        <img src="https://raw.githubusercontent.com/raman-boddula/meesho-clone/main/cart-img.png" id="cart">
+    <button id="logout">Log Out</button>
+</div>
+<div id="container">
+    <div id="addedProducts">
+
+    </div>
+    
+    <div id="bill">
+        <h3>Total Payment</h3>
+        <div class="delivery">
+            <h4>Delivery Charge</h4>
+            <h4>0</h4>
+        </div>
+        <div class="delivery">
+            <h4>Discount</h4>
+            <h4> 100</h4>
+        </div>
+
+    </div>
+</div>
+</body>
+<script>
+let count = 0;
+let consumer_user = JSON.parse(localStorage.getItem("consumer_users"));
+  let current_users = JSON.parse(localStorage.getItem("current_user"));
+
+function sign(person,product) {
+    
+      if ( person.email == current_users){
+          console.log(person.email);
+        showProduct(product);
+        sum(person.product);
+        count++;
+        
+
+
+        // function remove(product){
+        //    if ( products.productCode == product.productCode){
+        //        console.log(product.productCode);
+        //    }
+      }
+  }
+
+
+
+   function sum(product){
+      let sum_price = 0;
+      for ( let i = 0; i < product.length; i++){
+          sum_price += Number(product[i].Product_Price);
+      }
+  
+
+    if ( count == 1)  {let div = document.createElement('div')
+      let bill = document.getElementById('bill');
+      let h4 = document.createElement('h4');
+      let h5 = document.createElement('h4');
+      div.className = 'delivery';
+
+      h4.textContent =  + Number(sum_price - 100);
+      h5.textContent = 'Total Amount';
+      let btn = document.createElement('button');
+      btn.innerText = 'Continue';
+      div.append(h5,h4);
+      let div_btn = document.createElement('div');
+      div_btn.append(btn);
+      btn.id = 'continue';
+      btn.onclick = function(){
+          window.location.href = 'address.html';
+      }
+      bill.append(div,div_btn);
+      
+
+      
+
+     
+
+
+    }
+      
+  }
+
+
+
+
+
+function retrieve_users() {
+    consumer_user.forEach(function (person) {
+       
+      let list_product = person.product;
+  
+      list_product.forEach(function (products) {
+       // console.log(product)
+       sign(person,products);
+    
+       
+      
+       });
+    });
+}
+
+
+  retrieve_users();
+
+  function showProduct(product) {
+    let parent = document.getElementById('addedProducts');
+    let div = document.createElement("div");
+
+    let img = document.createElement("img");
+    img.src = product.Product_Img;
+    let productCode = document.createElement("p");
+    productCode.textContent = product.Product_Code;
+    let productPrice = document.createElement("h6");
+    productPrice.textContent = "Rs "+ product.Product_Price;
+    let productName = document.createElement("h6");
+    productName.textContent = product.Product_Name;
+    let detail_product = document.createElement('div');
+    detail_product.id = 'detail_product';
+
+    let remove_form_cart = document.createElement("button");
+    remove_form_cart.innerText = "Remove";
+     remove_form_cart.onclick = function(){
+         remove(product);
+     }
+   div.id = 'single_product';
+    div.append(img);
+    detail_product.append(productName,productPrice ,remove_form_cart)
+    div.append(detail_product);
+    
+
+    parent.append(div);
+  }
+
+  let logout = document.getElementById('logout');
+  logout.addEventListener('click',function(){
+      window.location.href = 'meesho_homepage.html';
+      localStorage.setItem('current_user',JSON.stringify(null));
+  })
+</script>
+</html>
